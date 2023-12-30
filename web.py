@@ -9,7 +9,7 @@ def loadpdf():
     st.write("")
     pdf_url = "https://raw.githubusercontent.com/WatchMan123/Bicycle-accident-data/main/Latex.pdf"
 
-    pdf_display = f'<object src="{pdf_url}" width="800" height="1000" type="application/pdf"></object>'
+    pdf_display = f'<embed src="{pdf_url}" width="800" height="1000" type="application/pdf">'
     st.markdown(pdf_display, unsafe_allow_html=True)
     
 def accident_data(choice):
