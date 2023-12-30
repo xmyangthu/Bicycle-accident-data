@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 def loadpdf():
     st.title("欧洲自行车骑行宣言")
     st.write("")
-    pdf_file = "Latex.pdf"
+    pdf_file = "https://raw.githubusercontent.com/WatchMan123/Bicycle-accident-data/main/Latex.pdf"
     with open(pdf_file, "rb") as f:
         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
         pdf_display = F'<iframe src="data:application/pdf;base64,{base64_pdf}" width="800" height="1000" type="application/pdf"></iframe>'
