@@ -7,6 +7,7 @@ import plotly.graph_objects as go
 def loadpdf():
     st.title("欧洲自行车骑行宣言")
     st.write("")
+    st.write("若本页无法显示，请用火狐浏览器打开。")
     pdf_file = "Latex.pdf"
     with open(pdf_file, "rb") as f:
         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
