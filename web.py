@@ -3,7 +3,6 @@ import streamlit as st
 import base64
 import plotly.express as px
 import plotly.graph_objects as go
-import matplotlib.pyplot as plt
 
 def loadpdf():
     st.title("欧洲自行车骑行宣言")
