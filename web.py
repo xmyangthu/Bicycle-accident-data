@@ -1,19 +1,9 @@
 import pandas as pd
 import streamlit as st
-import base64
 import plotly.express as px
 import plotly.graph_objects as go
 
-def loadpdf():
-    st.title("欧洲自行车骑行宣言")
-    st.write("")
-    st.write("若本页无法显示，请用火狐浏览器打开。")
-    pdf_file = "Latex.pdf"
-    with open(pdf_file, "rb") as f:
-        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="800" height="1000" type="application/pdf"></iframe>'
-    st.markdown(pdf_display, unsafe_allow_html=True)
-    
+
 def accident_data(choice):
     st.title(f"{choice}")
     st.write("[注]：所有数据均来自国家统计局（[点击访问国家统计局](https://www.stats.gov.cn/)）")
@@ -182,7 +172,6 @@ def compare(str1,str2):
         
 
     return fig1,fig2
-    
 
 
 def paintbar(data):
@@ -204,17 +193,10 @@ def paintbar(data):
 
 
 def main():
-    st.sidebar.title("导航栏")
-    pages = ["欧洲自行车骑行宣言", "自行车事故数据"]
-    selection = st.sidebar.selectbox("选择页面", pages)
-
-    if selection == "欧洲自行车骑行宣言":
-        loadpdf()
-    elif selection == "自行车事故数据":
-        st.sidebar.subheader("自行车交通事故数据")
-        choicelist = ["总体数据", "各年份具体数据", "与交通事故总体对比"]
-        choice = st.sidebar.selectbox("选择子页面", choicelist)
-        accident_data(choice)
+    st.sidebar.title("自行车交通事故数据")
+    choicelist = ["总体数据", "各年份具体数据", "与交通事故总体对比"]
+    choice = st.sidebar.selectbox("选择页面", choicelist)
+    accident_data(choice)
     
 
 if __name__ == "__main__":
